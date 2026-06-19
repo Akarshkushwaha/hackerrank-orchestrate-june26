@@ -1,17 +1,17 @@
 import os
 import json
 import time
-from groq import Groq
+from openai import OpenAI
 from pathlib import Path
 from utils import encode_image_base64, get_user_history, get_evidence_requirements
 from prompts import SYSTEM_PROMPT, build_user_prompt
 
 class ClaimsProcessor:
-    def __init__(self, api_key=None, model="llama-3.2-90b-vision-instruct"):
-        key = api_key or os.environ.get("GROQ_API_KEY")
+    def __init__(self, api_key=None, model="meta-llama/llama-3.2-11b-vision-instruct:free"):
+        key = api_key or os.environ.get("OPENROUTER_API_KEY")
         if not key:
-            raise ValueError("GROQ_API_KEY must be set in environment variables or passed explicitly.")
-        self.client = Groq(api_key=key)
+            raise ValueError("OPENROUTER_API_KEY must be set in environment variables or passed explicitly.")
+        self.client = OpenAI(base_url="https://openrouter.ai/api/v1", api_key=key)
         self.model = model
         self.total_calls = 0
         self.total_input_tokens = 0

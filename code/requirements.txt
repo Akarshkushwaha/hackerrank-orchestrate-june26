@@ -1,4 +1,4 @@
 pandas
-groq
+openai
 pillow
 python-dotenv

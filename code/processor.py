@@ -7,7 +7,7 @@ from utils import encode_image_base64, get_user_history, get_evidence_requiremen
 from prompts import SYSTEM_PROMPT, build_user_prompt
 
 class ClaimsProcessor:
-    def __init__(self, api_key=None, model="llama-3.2-11b-vision-preview"):
+    def __init__(self, api_key=None, model="llama-3.2-90b-vision-instruct"):
         key = api_key or os.environ.get("GROQ_API_KEY")
         if not key:
             raise ValueError("GROQ_API_KEY must be set in environment variables or passed explicitly.")

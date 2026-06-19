@@ -13,8 +13,9 @@ from dotenv import load_dotenv
 def evaluate():
     load_dotenv()
     
-    if not os.environ.get("GROQ_API_KEY"):
-        print("ERROR: GROQ_API_KEY environment variable not found.")
+    api_key = os.environ.get("OPENROUTER_API_KEY")
+    if not api_key:
+        print("ERROR: OPENROUTER_API_KEY environment variable not found.")
         print("Please set it in your environment or a .env file to run evaluation.")
         return
         

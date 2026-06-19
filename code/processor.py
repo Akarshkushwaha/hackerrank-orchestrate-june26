@@ -7,7 +7,7 @@ from utils import encode_image_base64, get_user_history, get_evidence_requiremen
 from prompts import SYSTEM_PROMPT, build_user_prompt
 
 class ClaimsProcessor:
-    def __init__(self, api_key=None, model="meta-llama/llama-3.2-11b-vision-instruct:free"):
+    def __init__(self, api_key=None, model="nvidia/nemotron-nano-12b-v2-vl:free"):
         key = api_key or os.environ.get("OPENROUTER_API_KEY")
         if not key:
             raise ValueError("OPENROUTER_API_KEY must be set in environment variables or passed explicitly.")
